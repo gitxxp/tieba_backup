@@ -7,3 +7,5 @@
 2、查看贴吧链接是否带有https，如有则输入y（小写）
 
 3、enjoy it
+### 下载
+[点此](https://github.com/gitxxp/tieba_backup/releases/download/1/tieba.exe)下载打包好的exe文件
