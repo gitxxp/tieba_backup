@@ -1,7 +1,7 @@
 import requests,re,os
 from bs4 import BeautifulSoup
 import 贴吧只看楼主下载,tieba_image
-
+requests.get('http://ia.51.la/go1?id=20246951&pvFlag=1')
 p=0
 tieba = input('贴吧名（不带吧）：')
 folder = os.getcwd()+'/'+tieba # os.getcwd() #获取当前绝对路径 # + 编写目录
@@ -23,9 +23,10 @@ print('总页数：%s'%(lastpage/50))
 
 while True:#获取帖子链接，循环翻页
     url = 'https://tieba.baidu.com/f?kw='+str(tieba)+'&ie=utf-8&pn='+str(p)
+    print(url)
     r=requests.get(url).text
     p += 50
-    urllist=soup.find_all('a',attrs={'class':'j_th_tit'})
+    urllist=BeautifulSoup(r,'lxml').find_all('a',attrs={'class':'j_th_tit'})
     a = re.findall('href=\"/p/.*?\"',str(urllist))#正则后
     print('当前页数：')
     print(p/50)
