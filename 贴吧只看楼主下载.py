@@ -7,7 +7,7 @@ def run(put,tieba):
     print('-----------------------------------------')
     inputurl = put
     url = inputurl+'?see_lz=1&pn='
-    title = '你是怎么发现这个bug的'
+    title = 'bug'
     once = 0
     
     while True:
@@ -42,7 +42,7 @@ def run(put,tieba):
         title = title[0].get_text()
         print('获取标题:',title)
       dr = re.compile(r'<[^>]+>',re.S)
-      done = dr.sub('',str(soup).replace("<br/>", "\r\n").replace("            ","\r\n"))#去标签正文 
+      done = dr.sub('',str(soup).replace("<br/>", "\r\n").replace("            " , "\r\n\r\n"))#去标签正文 
       print('下载第%s页'%p)
       try:
         with open(tieba+'/'+str(title)+'.txt','a',encoding='utf-8')as f:
@@ -60,3 +60,7 @@ def run(put,tieba):
         break
     # if check == 'q':
     #   break
+if __name__ == "__main__":
+    put = input('新建temptxt文件夹后输入网址：')
+    tieba = 'temptxt'
+    run(put,tieba)
