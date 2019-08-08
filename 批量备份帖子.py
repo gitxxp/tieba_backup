@@ -1,7 +1,7 @@
 import requests,re,os
 from bs4 import BeautifulSoup
 import 贴吧只看楼主下载,tieba_image
-requests.get('http://ia.51.la/go1?id=20246951&pvFlag=1')
+requests.get('http://ia.51.la/go1?id=20246951&pvFlag=1')#统计使用人数，可删除此行。
 p=0
 tieba = input('贴吧名（不带吧）：')
 folder = os.getcwd()+'/'+tieba # os.getcwd() #获取当前绝对路径 # + 编写目录
